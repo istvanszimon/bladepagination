@@ -1,0 +1,20 @@
+{
+    "name": "clay/blade-pagination",
+    "description": "Laravel's pagination with Blade templating support",
+    "type": "library",
+    "keywords": ["blade","pagination"],
+    "homepage": "http://duilio.me",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Duilio Palacios",
+            "email": "i@duilio.me",
+            "homepage": "http://duilio.me",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/pagination": "5.0.*"
+    }
+}
