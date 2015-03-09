@@ -6,35 +6,21 @@ trait LinksTrait {
 
     public function getLinks()
     {
-        $buttons = array();
+        $links = array();
 
-        foreach ($this->window as $key => $list) {
-            $buttons = array_merge(
-                $buttons,
-                $this->getSliderLinks($list, $key != 'first')
-            );
+        if (is_array($this->window['first'])) {
+            $links = $this->window['first'];
         }
 
-        return $buttons;
-    }
-
-    protected function getSliderLinks($slider, $separator = true)
-    {
-        if ( ! is_array ($slider)) {
-            return array();
+        if (is_array($this->window['slider'])) {
+            $links += ['first_div' => ''] + $this->window['slider'];
         }
 
-        $buttons = array();
-
-        if ($separator) {
-            $buttons[] = $this->getDisabledButton($this->trans('sep', '...'));
+        if (is_array($this->window['last'])) {
+            $links += ['last_div' => ''] + $this->window['last'];
         }
 
-        foreach ($slider as $page => $url) {
-            $buttons[] = $this->getButton($url, $page);
-        }
-
-        return $buttons;
+        return $links;
     }
 
 } 

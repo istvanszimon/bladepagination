@@ -8,7 +8,7 @@ use Illuminate\Pagination\UrlWindow;
 
 class Presenter implements PresenterContract {
 
-    use PreviousNextTrait, LinksTrait, ButtonFactoryTrait, ButtonTextTrait;
+    use PreviousNextTrait, LinksTrait;
 
     /**
      * @param PaginatorContract $paginator
@@ -34,7 +34,9 @@ class Presenter implements PresenterContract {
             'next'     => $this->getNext()
         ];
 
-        return view('blade_pagination::pages', $data);
+        $theme = config('pagination.theme', 'bootstrap');
+
+        return view('pagination::' . $theme, $data)->render();
     }
 
     /**
@@ -46,4 +48,5 @@ class Presenter implements PresenterContract {
     {
         return $this->paginator->hasPages();
     }
+
 }
