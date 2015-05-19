@@ -36,7 +36,12 @@ class Presenter implements PresenterContract {
 
         $theme = config('pagination.theme', 'bootstrap');
 
-        return view('pagination::' . $theme, $data)->render();
+		if ($this->paginator->hasPages())
+		{
+			return view('pagination::' . $theme, $data)->render();
+		}
+
+		return null;
     }
 
     /**
