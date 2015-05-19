@@ -21,7 +21,7 @@ class ServiceProvider extends LaravelServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'pagination');
 
         $this->publishes([
-            __DIR__.'/../views' => base_path('resources/views/pagination'),
+            __DIR__.'/../views' => base_path('resources/views/vendor/pagination'),
         ]);
 
         $this->publishes([
